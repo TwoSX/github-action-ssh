@@ -11,6 +11,7 @@ async function run() {
   const password: string = core.getInput('password');
   const passphrase: string = core.getInput('passphrase');
   const tryKeyboard: boolean = !!core.getInput('tryKeyboard');
+  const delay: number = +core.getInput('delay') || 0;
   try {
     const ssh = await connect(
       host,
@@ -21,6 +22,11 @@ async function run() {
       passphrase,
       tryKeyboard
     );
+
+    if (delay > 0) {
+      console.log(`⏱️ Delaying command execution by ${delay} seconds...`);
+      await new Promise(resolve => setTimeout(resolve, delay * 1000));
+    }
 
     await executeCommand(ssh, command);
 

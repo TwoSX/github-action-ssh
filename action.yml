@@ -28,6 +28,10 @@ inputs:
   tryKeyboard:
     description: "Try keyboard-interactive user authentication if primary user authentication method fails."
     required: false
+  delay:
+    description: "Delay in seconds before executing the command after establishing SSH connection."
+    required: false
+    default: "0"
 runs:
   using: "node20"
   main: "dist/index.js"

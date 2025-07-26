@@ -43,6 +43,8 @@ Check out [the workflow example](.github/workflows/ssh-example-workflow.yml) for
 
 - **tryKeyboard** - _boolean_ - Try keyboard-interactive user authentication if primary user authentication method fails. **Default:** `false`
 
+- **delay** - _integer_ - Delay in seconds before executing the command after establishing SSH connection. **Default:** `0`
+
 ## Development
 
 ---

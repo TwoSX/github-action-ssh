@@ -1,4 +1,3 @@
-```markdown
 # GitHub Action SSH
 
 简单的 GitHub Action，用于使用 SSH 在远程服务器上运行命令。这与最新的 [GitHub Actions](https://github.com/features/actions) 兼容。
@@ -40,9 +39,10 @@
 
 - **tryKeyboard** - _布尔值_ - 如果主要的用户认证方法失败，则尝试键盘交互式用户认证。**默认:** `false`
 
+- **delay** - _整数_ - 在建立SSH连接后执行命令前的延迟时间（秒）。**默认:** `0`
+
 ## 开发
 
 ---
 
 这个东西是用 Typescript 和 [ssh2](https://github.com/mscdex/ssh2)（通过 [node-ssh](https://github.com/steelbrain/node-ssh)）构建的。 🚀
-```
