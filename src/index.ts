@@ -26,6 +26,9 @@ async function run() {
     if (delay > 0) {
       console.log(`⏱️ Delaying command execution by ${delay} seconds...`);
       await new Promise(resolve => setTimeout(resolve, delay * 1000));
+      console.log(`⏱️ Delay completed, proceeding with command execution`);
+    } else {
+      console.log(`⏱️ No delay configured, proceeding with command execution`);
     }
 
     await executeCommand(ssh, command);

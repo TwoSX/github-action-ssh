@@ -52,8 +52,17 @@ function run() {
         const password = core.getInput('password');
         const passphrase = core.getInput('passphrase');
         const tryKeyboard = !!core.getInput('tryKeyboard');
+        const delay = +core.getInput('delay') || 0;
         try {
             const ssh = yield connect(host, username, port, privateKey, password, passphrase, tryKeyboard);
+            if (delay > 0) {
+                console.log(`⏱️ Delaying command execution by ${delay} seconds...`);
+                yield new Promise(resolve => setTimeout(resolve, delay * 1000));
+                console.log(`⏱️ Delay completed, proceeding with command execution`);
+            }
+            else {
+                console.log(`⏱️ No delay configured, proceeding with command execution`);
+            }
             yield executeCommand(ssh, command);
             ssh.dispose();
         }
